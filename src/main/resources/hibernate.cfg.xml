@@ -14,7 +14,7 @@
         <property name="connection.password">123</property>
 
         <!-- DB schema will be updated if needed -->
-        <property name="hbm2ddl.auto">validate</property>
+        <property name="hbm2ddl.auto">create</property>
         <!-- NOTE that after automapping with IDEA property username and password will delete -->
         <mapping class="models.Person"/>
         <mapping class="models.RecordBook"/>

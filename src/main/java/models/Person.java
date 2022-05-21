@@ -11,7 +11,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "persons")
+@Table(name = "persons", uniqueConstraints = {
+        @UniqueConstraint(name = "UK_person", columnNames = {"passport_serial", "passport_number"})
+})
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
