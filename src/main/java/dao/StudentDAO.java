@@ -24,5 +24,5 @@ public interface StudentDAO {
     List<Student> save(List<Student> students) throws Exception;
 
     // Удалить студента.
-    void delete(String contact) throws Exception;
+    void delete(Student student) throws Exception;
 }

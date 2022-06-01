@@ -20,8 +20,7 @@ public class StudentDAOImplHQL implements StudentDAO {
             List<Student> students = session.createQuery("SELECT s FROM Student s", Student.class).getResultList();
             session.getTransaction().commit();
             return students;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             session.getTransaction().rollback();
             throw new Exception("Error when getting a data from the database" +
                     e.getMessage());
@@ -38,8 +37,7 @@ public class StudentDAOImplHQL implements StudentDAO {
                     .getResultList();
             session.getTransaction().commit();
             return students;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             session.getTransaction().rollback();
             throw new Exception("Error when getting a data from the database." +
                     e.getMessage());
@@ -55,8 +53,7 @@ public class StudentDAOImplHQL implements StudentDAO {
                     .getResultList();
             session.getTransaction().commit();
             return students;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             session.getTransaction().rollback();
             throw new Exception("Error when getting a data from the database." +
                     e.getMessage());
@@ -76,8 +73,7 @@ public class StudentDAOImplHQL implements StudentDAO {
                     .getResultList();
             session.getTransaction().commit();
             return students;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             session.getTransaction().rollback();
             throw new Exception("Error when getting a data from the database." +
                     e.getMessage());
@@ -90,8 +86,7 @@ public class StudentDAOImplHQL implements StudentDAO {
 
         try {
             return session.get(Student.class, id);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             session.getTransaction().rollback();
             throw new Exception("Not found student with ID = " + id + "." +
                     e.getMessage());
@@ -106,8 +101,7 @@ public class StudentDAOImplHQL implements StudentDAO {
             session.save(student);
             session.getTransaction().commit();
             return student;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             session.getTransaction().rollback();
             throw new Exception("Error when saving the data into the database. " +
                     e.getMessage());
@@ -124,8 +118,7 @@ public class StudentDAOImplHQL implements StudentDAO {
             }
             session.getTransaction().commit();
             return students;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             session.getTransaction().rollback();
             throw new Exception("Error when saving the data into the database. " +
                     e.getMessage());
@@ -133,7 +126,17 @@ public class StudentDAOImplHQL implements StudentDAO {
     }
 
     @Override
-    public void delete(String contact) {
+    public void delete(Student student) throws Exception {
+        session.beginTransaction();
 
+        try {
+            session.delete(student);
+            session.getTransaction().commit();
+        }
+        catch (Exception e) {
+            session.getTransaction().rollback();
+            throw new Exception("Error when deleting the data from the database. " +
+                    e.getMessage());
+        }
     }
 }

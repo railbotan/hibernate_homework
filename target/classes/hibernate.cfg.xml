@@ -21,5 +21,10 @@
         <mapping class="models.Student"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
+
+        <event type="post-delete">
+            <listener class="dao.listeners.DeleteWithMessage"/>
+        </event>
     </session-factory>
+
 </hibernate-configuration>

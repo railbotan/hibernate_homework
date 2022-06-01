@@ -7,7 +7,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDAOImplCriteria implements StudentDAO {
@@ -151,7 +150,17 @@ public class StudentDAOImplCriteria implements StudentDAO {
     }
 
     @Override
-    public void delete(String contact) throws Exception {
+    public void delete(Student student) throws Exception {
+        session.beginTransaction();
 
+        try {
+            session.delete(student);
+            session.getTransaction().commit();
+        }
+        catch (Exception e) {
+            session.getTransaction().rollback();
+            throw new Exception("Error when deleting the data from the database. " +
+                    e.getMessage());
+        }
     }
 }

@@ -8,5 +8,16 @@
       <jdbc-url>jdbc:jtds:sqlserver://localhost:1433/Hibernate_Homework;instance=MSSQLSERVER</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="70f220f9-330c-45b2-ab2e-b746bb49036b">
+      <driver-ref>sqlserver.jtds</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+D:/BilliardClub/Project/Hibernate/src/main/resources/hibernate.cfg.xml</remarks>
+      <jdbc-driver>net.sourceforge.jtds.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:jtds:sqlserver://localhost:1433/Hibernate_Homework;instance=MSSQLSERVER</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

@@ -32,6 +32,10 @@ public class Main {
 
         printStudents(criteriaDAO.findAllWithoutRecordBook(), "Студенты без зачеток (Criteria)");
 
+        for (Student student : students) {
+            hqlDAO.delete(student);
+        }
+
         session.close();
     }
 
